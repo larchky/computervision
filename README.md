@@ -12,6 +12,6 @@ This repostory contains a computer vision project that estimates and keep track 
 * roboflow api key
   
 --roboflow_api_key : roboflow api key
---source_video_path : path to video frame used for inferencing
---target_video_path : path to save the proccessed video result
+n/ --source_video_path : path to video frame used for inferencing
+n/ --target_video_path : path to save the proccessed video result
 
