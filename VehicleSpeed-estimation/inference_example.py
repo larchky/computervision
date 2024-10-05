@@ -7,7 +7,7 @@ import numpy as np
 from inference.models.utils import get_roboflow_model
 
 import supervision as sv
-
+# polygon zone analyzed from the video frame used
 A = [330, 100]
 B = [1161, 93]
 C = [932, 720]
@@ -16,6 +16,7 @@ D = [-1520, 720]
 
 SOURCE = np.array([A, B, C, D])
 
+# target zone
 TARGET_WIDTH = 25
 TARGET_HEIGHT = 250
 
@@ -28,7 +29,7 @@ TARGET = np.array(
     ]
 )
 
-
+# class that transforms points from source point to target point
 class ViewTransformer:
     def __init__(self, source: np.ndarray, target: np.ndarray) -> None:
         source = source.astype(np.float32)
@@ -43,7 +44,7 @@ class ViewTransformer:
         transformed_points = cv2.perspectiveTransform(reshaped_points, self.m)
         return transformed_points.reshape(-1, 2)
 
-
+# parse arguments (requirements)
 def parse_arguments() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description="Vehicle Speed Estimation using Inference and Supervision"
